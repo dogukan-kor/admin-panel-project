@@ -10,6 +10,9 @@ const EmployeeSchema=new mongoose.Schema({
         type:String,
         required:true,
     },
+    position:{
+        type:String,
+    },
     e_posta:{
         type:String,
         required:true,

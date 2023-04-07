@@ -13,3 +13,14 @@ export const createEmployee=async (req,res,next)=>{
 }
 
 
+export const getAllEmployee=async (req,res,next)=>{
+    console.log("Get All çalıştı")
+    try{
+        const employees=await Employee.find();       
+        res.status(200).json(employees);
+    }catch(err){
+        next(err);
+    } 
+}
+
+
