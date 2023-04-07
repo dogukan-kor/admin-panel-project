@@ -25,7 +25,7 @@ app.use(express.json());
 
 app.use("/employee",employeeRoute);
 
-app.listen(3000,()=>{
+app.listen(8000,()=>{
     connect();
     console.log("Admin Projesine başlanıldı");
 })

@@ -2,9 +2,12 @@ import '../css/App.css';
 import Grafik from '../components/Grafik';
 import Tablo from '../components/Tablo';
 import Navbar from '../components/Navbar';
+import useFetch from '../hooks/useFetch';
 
 
 export default function Admin() {
+  const {data,loading,error}=useFetch("/employee/getEmployee");
+
   return (
    <div>
      <div className=' flex '>
@@ -26,7 +29,7 @@ export default function Admin() {
       </div>
       </div>
         <Grafik />
-        <Tablo />
+        <Tablo data={data} error={error} loading={loading} />
         
       </div>
       

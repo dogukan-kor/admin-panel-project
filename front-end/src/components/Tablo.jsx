@@ -1,12 +1,10 @@
 import '../css/Tablo.css'
-import useFetch from '../hooks/useFetch';
 
-function Tablo(){
-    const {data,loading,error}=useFetch("/employee/getEmployee");
+function Tablo(props){
     
     return(
         <div>
-      {loading ?(
+      {props.loading ?(
         "loading please wait"
       ):(
          <>
@@ -24,15 +22,15 @@ function Tablo(){
             <th className=' p-3 text-sm font-semibol tracking-wide text-left'>Detay</th>
         </thead>
         <tbody className=' divide-y divide-gray-500'>
-        {data.map((calisan)=>(
+        {props.data.map((calisan)=>(
             <tr className=' bg-slate-100'>
                 <td className='p-3 text-sm text-slate-900 whitespace-nowrap'>{calisan.name+" "+calisan.surname} </td>
                 <td className='p-3 text-sm text-slate-900 whitespace-nowrap'>{calisan.position} </td>
                 <td className='p-3 text-sm text-slate-900 whitespace-nowrap'>
                 <div className='flex items-center'> 
-                <div class="h-3 w-3 rounded-full bg-green-500 mr-2"></div>
+                <div className="h-3 w-3 rounded-full bg-green-500 mr-2"></div> 
                 {calisan.status}
-                  </div>
+                </div>
                 </td>
                 <td className='p-3 text-sm text-slate-900 whitespace-nowrap'>{calisan.successful_piece}</td>
                 <td className='p-3 text-sm text-slate-900 whitespace-nowrap'>{calisan.fire_piece}</td>
@@ -51,7 +49,7 @@ function Tablo(){
 
         <div className=' grid grid-cols-1 gap-4 lg:hidden w-5/6 md:w-1/2 text-lg mx-auto '>
             <p className=' text-center bg-sky-900 text-white'>Haftalık Çalışan Durum Tablosu</p>
-            {data.map((calisan)=>(
+            {props.data.map((calisan)=>(
                 <div className=' bg-slate-100  p-4 rounded-lg shadow space-y-3'>
                 <div className=' flex items-center space-x-2 font-bold '>
                     <div> {calisan.name+" "+calisan.surname} | </div>
