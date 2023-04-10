@@ -1,6 +1,10 @@
 import '../css/Grafik.css'
+import useFetch from '../hooks/useFetch';
+
 function Grafik(){
-    return(
+  const {fire}=useFetch("/employee/getFirePiece");
+    
+  return(
         <div>
             <div class="lg:flex lg:justify-center  w-5/6 mx-auto">
 
@@ -38,7 +42,7 @@ function Grafik(){
               </div>
              <div className='grafik-yazi'>
             <p className=' text-3xl text-white '>Fire Sayısı</p>
-            <p className='  text-cyan-700 grafik-p'> 780/10000</p>
+            <p className='  text-cyan-700 grafik-p'> {fire} 780/10000</p>
             <p className='text-white'>(%4 Fire Verildi)</p>
 
              </div>

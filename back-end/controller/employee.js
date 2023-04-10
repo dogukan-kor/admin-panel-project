@@ -16,11 +16,28 @@ export const createEmployee=async (req,res,next)=>{
 export const getAllEmployee=async (req,res,next)=>{
     console.log("Get All çalıştı")
     try{
-        const employees=await Employee.find();       
+        const employees=await Employee.find();  
+        console.log(employees);     
         res.status(200).json(employees);
     }catch(err){
         next(err);
     } 
 }
 
-
+export const getFirePiece=async (req,res,next)=>{
+    console.log("Get fire piece çalıştı")
+    try{
+        const totalFirePiece=await Employee.aggregate([
+            {
+                $group:{
+                    _id:"fire_piece",
+                    total:{$sum:"$fire_piece"}
+                }
+            }
+        ]);  
+        console.log(totalFirePiece[0].total); 
+        res.status(200).json(totalFirePiece);
+    }catch(err){
+        next(err);
+    } 
+}

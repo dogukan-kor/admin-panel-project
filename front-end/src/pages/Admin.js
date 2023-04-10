@@ -1,12 +1,14 @@
 import '../css/App.css';
 import Grafik from '../components/Grafik';
 import Tablo from '../components/Tablo';
+
 import Navbar from '../components/Navbar';
-import useFetch from '../hooks/useFetch';
+
+
+
 
 
 export default function Admin() {
-  const {data,loading,error}=useFetch("/employee/getEmployee");
 
   return (
    <div>
@@ -28,9 +30,9 @@ export default function Admin() {
       <a href='/deneme'> <img src='img/menu.png' alt='menu' className='p-3' /> </a>
       </div>
       </div>
+      
         <Grafik />
-        <Tablo data={data} error={error} loading={loading} />
-        
+        <Tablo />
       </div>
       
     </div>

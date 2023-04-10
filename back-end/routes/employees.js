@@ -1,5 +1,5 @@
 import express  from "express";
-import { createEmployee, getAllEmployee} from "../controller/employee.js";
+import { createEmployee, getAllEmployee, getFirePiece} from "../controller/employee.js";
 const router=express.Router();
 
 
@@ -8,4 +8,7 @@ const router=express.Router();
 router.post("/createEmployee",createEmployee);
 //Getirme
 router.get("/getEmployee",getAllEmployee);
+//Fire Getirme
+router.get("/getFirePiece",getFirePiece); 
+
 export default router;
